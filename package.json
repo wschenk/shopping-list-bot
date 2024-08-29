@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --ignore sessions --exec ts-node index.ts"
+    "dev": "nodemon --ignore sessions --exec ts-node index.ts",
+    "start": "ts-node index.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,9 +16,11 @@
     "dotenv": "^16.4.5",
     "node-fetch": "^3.3.2",
     "ollama-ai-provider": "^0.13.0",
-    "telegraf": "^4.16.3"
+    "telegraf": "^4.16.3",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.8",
     "@types/node": "^22.3.0",
     "nodemon": "^3.1.4"
   }

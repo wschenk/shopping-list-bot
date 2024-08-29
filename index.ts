@@ -47,8 +47,8 @@ by where they are found, dont add any commentary
 
 async function getFoodItems(session: SessionData): Promise<void> {
   const concatenatedString = session.foodList.join(" ");
-
-  const ctx = startContext("ollama/llama3.1", systemPrompt);
+  const model = process.env.MODEL || "ollama/llama3.1";
+  const ctx = startContext(model, systemPrompt);
   addMessage(ctx, concatenatedString);
   console.log("Running llm");
   const result = await processContext(ctx);
@@ -142,7 +142,17 @@ bot.catch((err, ctx) => {
   ctx.reply("An error occurred. Please try again later.");
 });
 
-bot.launch();
+if (process.env.NODE_ENV !== "development") {
+  bot.launch({
+    webhook: {
+      // Public domain for webhook; e.g.: example.com
+      domain: "shopping-list-bot.fly.dev",
+      port: 3000,
+    },
+  });
+} else {
+  bot.launch();
+}
 
 // Enable graceful stop
 process.once("SIGINT", () => bot.stop("SIGINT"));
