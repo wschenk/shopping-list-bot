@@ -1,0 +1,24 @@
+{
+  "name": "tmp.mdvcg0ozpl",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --ignore sessions --exec ts-node index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@ai-sdk/openai": "^0.0.54",
+    "ai": "^3.3.20",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2",
+    "ollama-ai-provider": "^0.13.0",
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.3.0",
+    "nodemon": "^3.1.4"
+  }
+}
